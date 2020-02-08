@@ -4,35 +4,41 @@ import { convertDate } from '../../services/utils';
 import Grid from './Grid';
 import { recetasAction } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import GlobalContext from '../../globalContext';
 
 export default function GridContainer(props) {
+
+    const global = React.useContext(GlobalContext);
+
     const dispatch = useDispatch();
     
     const  state = useSelector(state => state.recetasReducer);
 
     const { recetas }= state;
 
-        React.useEffect( () => {
+    React.useEffect( () => {
         
         dispatch(recetasAction.getRecetas());
+
         return () => {
         
         };
     }, [dispatch])
 
+    const format =global.date.separator;
 
+    const title = global.gridTitle;
 
-    
+    const notFound = global.messages.notFound;
     return (
-        <Grid {...state}>
+        <Grid {...state} title={title} >
             {
                 recetas && recetas.length > 0
                 ? recetas
-                    .filter(item => item.subtype === "7")
                     .map(item => {
-                    return <Card key={item._id} {...item} date={convertDate(item.display_date, 'de')} />
+                        return <Card key={item._id} {...item} date={convertDate(item.display_date, format)} />
                 })
-                : 'No se encontraron resultados'
+                    : notFound
             }
         </Grid>
     )

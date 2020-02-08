@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function Card(props) {
     
@@ -12,18 +13,19 @@ export default function Card(props) {
     return (
         <article className="mod-caja-nota lugares w-100-mobile">
             <section id="" className="cont-figure">
-                <a href={link} className="figure">
+                <Link to={link} className="figure">
                     <picture id="" className="content-pic picture">
                         <img src={url} alt="" className="content-img" />
                     </picture>
-                </a>
+                </Link>
             </section>
                 <div className="mod-caja-nota__descrip">
                     <h2 className="com-title-acu">
-                        <a href={link}>
-                        {/* <b>{subtitle}</b>  */}
-                        {title}</a>
-                        </h2>
+                        <Link to={link}>
+                            {/* <b>{subtitle}</b>  */}
+                            {title}
+                        </Link>
+                    </h2>
                     <h4 className="com-date">{dateTxt}</h4>
                     {/* <h4 className="com-date">1 de Julio de 2019</h4> */}
                 </div>

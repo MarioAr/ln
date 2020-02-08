@@ -9,9 +9,11 @@ export default function Tags(props) {
     return (
         <div id="" className="cont_tags com-secondary-tag hlp-marginBottom-20">
             {
-                tags.length > 0 && tags.map(item => {
+                tags && tags.length > 0 
+                ? tags.map(item => {
                     return <Tag key={item.slug} {...item} />
                 })
+                : null
             }
         </div>
     )

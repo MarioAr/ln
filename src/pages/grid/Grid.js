@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-// import data from '../../services/data';
 
 import { Tags, GridTitle, Spinner, Error } from '../../components/feedback';
 import { Row } from '../../components/layout';
@@ -7,11 +6,11 @@ import { Row } from '../../components/layout';
 
 export default function GridContainer(props) {
     
-    const { error, loading, errorMsg, tags } = props;
+
+    const { error, loading, errorMsg, tags, title } = props;
 
     const arrayTags = Object.values(tags).slice(0, 10);
     
-    let title="Acumulado Grilla";
     
     if (error) {
         return <Error msg={errorMsg} />

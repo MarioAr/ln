@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function Tag(props) {
     
@@ -9,7 +10,7 @@ export default function Tag(props) {
         // count
     } = props;
     return (
-        <a href={`tema/${slug}`} className="">{text}</a>
+        <Link to={`tema/${slug}`} className="">{text}</Link>
     )
 }
 Tag.defaultValues = {
