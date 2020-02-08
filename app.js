@@ -1,54 +1,18 @@
-const { init } = require('./modules/fizz')
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-const rta = init([123, 3, 4, 6, 5, 15, 356]);
+var app = express();
 
-console.log(rta);
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-// const rl = require('readline').createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// })
-// const numeros = [];
-// rl.question(`Desea fizzbuzzear (s/n) `, (name) => {
-//     if (name !== 's') {
-//         console.log(`Adios!`);
-
-//         rl.close();
-//         return;
-//     }
-//     console.log("Ingrese un numero y presione enter.");
-
-// })
-// // console.clear();
-// // console.log("Ingrese un numero y presione enter.");
-// rl.on('line', (input) => {
-//     // console.clear();
-//     // console.log("Ingrese un numero y presione enter.");
-
-//     // // const n = parseInt(input, 10);
-//     // if (isNaN(+input)) {
-//     //     console.log("No es un numero");
-//     // } else {
-//     //     numeros.push(input)
-        
-//     // }
-
-//     // console.log(`Numeros: [${numeros}]`);
-//     rl.cursor(5)
-    
-// });
-
-// rl.on('resume', () => {
-//     console.log('Readline resumed.');
-// });
-
-// rl.on('SIGINT', () => {
-//     // `prompt` will automatically resume the stream
-//     console.log('Chau amigou')
-//     // rl.prompt();
-//     rl.close();
-
-
-
-// });
+module.exports = app;
