@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MarioAr/ln/issues"
   },
-  "homepage": "https://github.com/MarioAr/ln#readme"
+  "homepage": "https://github.com/MarioAr/ln#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }
