@@ -9,7 +9,8 @@ import store from './redux/store';
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router basename={'/ln'}>
+        <Router >
+            {/* <Router basename={'/ln'}> */}
             <App />
         </Router>
     </Provider>
