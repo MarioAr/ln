@@ -9,7 +9,7 @@ export default function Error(props) {
     return <h1 className="error">{msg}</h1>
 }
 
-Error.defaultValue = {
+Error.defaultProps = {
     msg: "Error"
 }
 

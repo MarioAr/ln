@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Tags, GridTitle, Spinner, Error } from '../../components/feedback';
 import { Row } from '../../components/layout';
 import GlobalContext from '../../globalContext';
@@ -7,7 +8,7 @@ export default function GridContainer(props) {
 
     const global = React.useContext(GlobalContext);
 
-    const { error, loading, errorMsg, tags } = props;
+    const { error, loading, errorMsg, tags, children } = props;
 
     const arrayTags = Object.values(tags).slice(0, 10);
     
@@ -32,12 +33,14 @@ export default function GridContainer(props) {
                 <Tags tags={arrayTags} />
             </Row>
             {
-                props.children
+                children
             }
 
         </Fragment>
     )
 }
 
-
+GridContainer.propTypes = {
+    children: PropTypes.element.isRequired
+};
 

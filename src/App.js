@@ -13,7 +13,8 @@ const global = {
     },
     messages: {
         notFound: 'No se encontraron resultados'
-    }
+    },
+    rankingCount: 6
 }
 function App() {
     

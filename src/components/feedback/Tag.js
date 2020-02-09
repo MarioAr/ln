@@ -13,7 +13,7 @@ export default function Tag(props) {
         <Link to={`tema/${slug}`} className="">{text}</Link>
     )
 }
-Tag.defaultValues = {
+Tag.defaultProps = {
     slug: '',
     text: '',
     count: 0

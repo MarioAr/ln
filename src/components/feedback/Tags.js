@@ -18,7 +18,7 @@ export default function Tags(props) {
         </div>
     )
 }
-Tags.defaultValues = {
+Tags.defaultProps = {
     tags: []
 }
 Tags.propTypes = {

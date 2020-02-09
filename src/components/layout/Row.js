@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Row(props) {
     
@@ -8,3 +9,7 @@ export default function Row(props) {
         </div>
     )
 }
+
+Row.propTypes = {
+    children: PropTypes.element.isRequired
+};

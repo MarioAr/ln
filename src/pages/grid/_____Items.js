@@ -28,7 +28,7 @@ export default function Items (props) {
     )
 }
 
-Items.defaultValues = {
+Items.defaultProps = {
     items: []
 }
 Items.propTypes = {
