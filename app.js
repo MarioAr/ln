@@ -1,54 +1,35 @@
+var prompt = require('prompt-sync')();
 const { init } = require('./modules/fizz')
 
-const rta = init([123, 3, 4, 6, 5, 15, 356]);
+const numbers = [];
 
-console.log(rta);
+let n1
 
+console.log("Ingrese numeros al array. (para salir ingrese una letra)");
 
-// const rl = require('readline').createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// })
-// const numeros = [];
-// rl.question(`Desea fizzbuzzear (s/n) `, (name) => {
-//     if (name !== 's') {
-//         console.log(`Adios!`);
+do {
 
-//         rl.close();
-//         return;
-//     }
-//     console.log("Ingrese un numero y presione enter.");
+    n1 = prompt(`[${numbers.join(', ')}]: `, 'q');
 
-// })
-// // console.clear();
-// // console.log("Ingrese un numero y presione enter.");
-// rl.on('line', (input) => {
-//     // console.clear();
-//     // console.log("Ingrese un numero y presione enter.");
+    n1 = parseInt(n1, 10);
 
-//     // // const n = parseInt(input, 10);
-//     // if (isNaN(+input)) {
-//     //     console.log("No es un numero");
-//     // } else {
-//     //     numeros.push(input)
-        
-//     // }
+    if (isNaN(n1)) break;
 
-//     // console.log(`Numeros: [${numeros}]`);
-//     rl.cursor(5)
+    numbers.push(n1);
+
     
-// });
+} while (true);
 
-// rl.on('resume', () => {
-//     console.log('Readline resumed.');
-// });
-
-// rl.on('SIGINT', () => {
-//     // `prompt` will automatically resume the stream
-//     console.log('Chau amigou')
-//     // rl.prompt();
-//     rl.close();
+if (numbers.length === 0) {
+    console.log('No hay numeros en el array :(');
+    return;
+}
 
 
+const rta = init(numbers);
 
-// });
+console.clear();
+
+console.log(numbers)
+
+console.log(`\n\t${rta}`);

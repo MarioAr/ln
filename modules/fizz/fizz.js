@@ -1,30 +1,42 @@
 const { 
     divisibleTres,
     divisibleCinco,
+    divisibleTresYCinco,
     contieneTres,
     contieneCinco
  } = require('./math');
 
 const init = data => {
     
+    if (!validateArray(data)) {
+        throw Error("El valor tiene que ser array.");
+        return;
+    }
+    
     return calcular(data).join('-');
 }
 
 function calcular(data) {
+
     return data
         .map(n => {
-            let por3, por5, cont3, cont5;
+            let     divisiblePorTres,
+                    divisiblePorCinco,
+                    divisiblePorTresYCinco,
+                    contieneUnTres,
+                    contieneUnCinco;
 
-            por3 = divisibleTres(n);
-            por5 = divisibleCinco(n);
-            cont3 = contieneTres(n);
-            cont5 = contieneCinco(n);
+            divisiblePorTres = divisibleTres(n);
+            divisiblePorCinco = divisibleCinco(n);
+            divisiblePorTresYCinco = divisibleTresYCinco(n);
+            contieneUnTres = contieneTres(n);
+            contieneUnCinco = contieneCinco(n);
 
-            if (por3 && por5) {
+            if (divisiblePorTresYCinco) {
                 return 'FizzBuzz';
-            } else if (por5 || cont5) {
+            } else if (divisiblePorCinco || contieneUnCinco) {
                 return "Buzz";
-            } else if (por3 || cont3) {
+            } else if (divisiblePorTres || contieneUnTres) {
                 return 'Fizz';
             } else {
                 return false;
@@ -33,4 +45,8 @@ function calcular(data) {
         .filter(item => item);
 }
 
+function validateArray(data) {
+
+    return Array.isArray(data);
+}
 module.exports = init;

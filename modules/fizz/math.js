@@ -1,8 +1,12 @@
 module.exports = {
     divisibleTres,
     divisibleCinco,
+    divisibleTresYCinco,
     contieneTres,
-    contieneCinco
+    contieneCinco,
+    // para test
+    divisible,
+    contiene
 }
 
 /**
@@ -11,6 +15,7 @@ module.exports = {
  * @param {*} div 
  */
  function divisible(n, div) {
+     if (!validateInteger(n) || !validateInteger(div)) throw new TypeError('Argumentos deben ser numeros.')
     return n % div ? false : true;
 }
 
@@ -20,6 +25,10 @@ function divisibleTres(n) {
 
 function divisibleCinco(n) {
     return divisible(n, 5);
+}
+
+function divisibleTresYCinco(n) {
+    return divisible(n, 15);
 }
 
 /**
@@ -41,24 +50,6 @@ function contieneCinco(n) {
     return contiene(n, 5);
 }
 
-// let resultado = [123, 3, 4, 6, 5, 15, 356].map(n => {
-//     let por3, por5, cont3, cont5;
-
-//     por3 = divisibleTres(n);
-//     por5 = divisibleCinco(n);
-//     cont3 = contieneTres(n);
-//     cont5 = contieneCinco(n);
-
-//     if (por3 && por5) {
-//         return 'FizzBuzz';
-//     } else if (por5 || cont5) {
-//         return "Buzz";
-//     }else if  (por3 || cont3) {
-//         return 'Fizz';
-//     }  else {
-//         return false;
-//     }
-// }).filter(item => item);
-
-// console.log(resultado.join('-'));
-// console.log(resultado);
+function validateInteger(n) {
+    return !isNaN(parseInt(n, 10));
+}

@@ -11,7 +11,7 @@ do {
 
     n1 = prompt(`[${numbers.join(', ')}]: `, 'q');
 
-    n1 = parseInt(n1);
+    n1 = parseInt(n1, 10);
 
     if (isNaN(n1)) break;
 
