@@ -3,6 +3,9 @@ import React from 'react';
 export default function Header(props) {
     
     return (
+        <React.Fragment>
+
+
         <header className="header --scrollUp">
             <div className="lay">
                 {/* <Row>
@@ -38,5 +41,23 @@ export default function Header(props) {
                 </div>
             </div>
         </header>
+        <header className="header-mobile">
+            <div className="lay">
+                <div className="row">
+                    <div className="col-6">
+                        <a href="http://especiales.lanacion.com.ar/" className="header-mobile__logo">
+                            <i className="logo-la-nacion"></i>
+                        </a>
+                    </div>
+                    <div className="col-6 hlp-text-right">
+                            <a href="/">Suscribite</a>
+                            
+                    </div> 
+                </div> 
+            </div>
+        </header>
+
+        </React.Fragment>
+
     )
 }

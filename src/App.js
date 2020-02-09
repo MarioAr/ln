@@ -5,22 +5,20 @@ import GlobalContext from './globalContext';
 
 import Home from './pages/home';
 
-
+const global = {
+    gridTitle: 'Acumulado Grilla',
+    date: {
+        format: 'simple',
+        separator: 'de'
+    },
+    messages: {
+        notFound: 'No se encontraron resultados'
+    }
+}
 function App() {
     
     return (
-        <GlobalContext.Provider value={
-            {
-                gridTitle: 'Acumulado Grilla',
-                date: {
-                    format: 'simple',
-                    separator: 'de'
-                },
-                messages: {
-                    notFound: 'No se encontraron resultados'
-                }
-            }
-        }>
+        <GlobalContext.Provider value={ global }>
             <Home />
         </GlobalContext.Provider>
     );

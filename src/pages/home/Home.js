@@ -1,11 +1,11 @@
 import React from 'react';
 // import { Header } from '../../components/header';
 import { Header } from './header';
-import Footer from './footer';
+import { Footer } from './footer';
 // import { Tags, GridTitle } from '../../components/feedback';
 import { Content } from '../../components/layout';
 import { SidebarAside, SidebarMain } from './sidebar';
-
+import { Navbar } from './nav';
 // const Footer = () => <div>"Footer"</div>;
 
 export default function Home(props) {
@@ -16,11 +16,15 @@ export default function Home(props) {
         <div id="wrap">
             <Header />
 
+            <Navbar />
+
             <Content>
                     <SidebarMain>
                         
                             <Routing />
-
+                    {/* <div className="banner --small --mobile"></div>
+                    <div className="transparency" ></div> */}
+                    
                     </SidebarMain>
 
                     <SidebarAside >

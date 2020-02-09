@@ -15,7 +15,7 @@ export default function Card(props) {
             <section id="" className="cont-figure">
                 <Link to={link} className="figure">
                     <picture id="" className="content-pic picture">
-                        <img src={url} alt="" className="content-img" />
+                        <img src={url} alt="" className="content-img" style={{height: '100%', width: '100%'}} />
                     </picture>
                 </Link>
             </section>

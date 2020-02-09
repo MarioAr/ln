@@ -1,14 +1,10 @@
 import React from 'react';
-import { Card } from '../../components/card';
-import { convertDate } from '../../services/utils';
 import Grid from './Grid';
 import { recetasAction } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import GlobalContext from '../../globalContext';
+import Items from './Items';
 
-export default function GridContainer(props) {
-
-    const global = React.useContext(GlobalContext);
+export default function GridContainer() {
 
     const dispatch = useDispatch();
     
@@ -21,25 +17,15 @@ export default function GridContainer(props) {
         dispatch(recetasAction.getRecetas());
 
         return () => {
-        
+            // dispatch(reset())
         };
     }, [dispatch])
 
-    const format =global.date.separator;
-
-    const title = global.gridTitle;
-
-    const notFound = global.messages.notFound;
     return (
-        <Grid {...state} title={title} >
-            {
-                recetas && recetas.length > 0
-                ? recetas
-                    .map(item => {
-                        return <Card key={item._id} {...item} date={convertDate(item.display_date, format)} />
-                })
-                    : notFound
-            }
+        <Grid {...state} >
+            <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
+                <Items items={recetas} />
+            </section>
         </Grid>
     )
 }
