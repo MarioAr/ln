@@ -12,4 +12,4 @@ El programa contiene dos scripts; **start** para iniciar el programa y **test** 
  1. Instalar las dependencias: ```:~$ npm i```
  2. Ejecutar el script start: ```:~$ npm start```
  3. Ingrese números y presione 'enter' para cargarlos.
- 4. Para salir no ingrese un 'string' o nada y presione 'enter'.
+ 4. Para salir ingrese un 'string' o nada y presione 'enter'.
