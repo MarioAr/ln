@@ -14,6 +14,6 @@ export default function Aside(props) {
     )
 }
 
-Aside.propTypes = {
+// Aside.propTypes = {
 
-}
+// }

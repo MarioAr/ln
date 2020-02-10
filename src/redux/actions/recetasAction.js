@@ -59,7 +59,7 @@ export  function getRecetas() {
         try {
             let data = await _getRecetas();
             /* Lanzo error si la rta no es la que espero */
-            if (!data.articles) throw Error("Data error");
+            if (!data.articles) throw new Error("Data error");
 
             data = extractSubtype(data.articles)
             /* Despacho reseteo de error y laoding */

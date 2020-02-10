@@ -1,17 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import Grid from './Grid';
 import { recetasAction } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-// import Items from './Items';
 import { Iterator } from '../_helpers/';
-// function I(props) {
-//     return (
-//         <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-//             {props.children}
-//         </section>
-//     )
-// }
+
 export default function GridContainer() {
 
     const dispatch = useDispatch();
@@ -23,8 +15,7 @@ export default function GridContainer() {
     React.useEffect( () => {
         
         if (recetas.length === 0) {
-            dispatch(recetasAction.getRecetas());
-        
+            dispatch(recetasAction.getRecetas());        
         }
         
         return () => {
@@ -36,7 +27,7 @@ export default function GridContainer() {
         
         <Grid {...state} >
             <section className="row-gap-tablet-2 row-gap-deskxl-3 hlp-degrade">
-            {/* <Items items={recetas} /> */}
+            
                     <Iterator
                         items={recetas}
                     />

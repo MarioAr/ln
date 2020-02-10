@@ -1,13 +1,12 @@
 import { endpoint }  from './config';
 
-export function getRecetas() {
-    return fetch(endpoint.recetas)
-        .then(data => data.json())
-        .catch(error);
-}
+export async  function getRecetas() {
+    
+    try {
+        let rta = await fetch(endpoint.recetas);
 
-
-
-function error(e) {
-    return e;
+        return rta.json();
+    } catch (error) {
+        return error;
+    }
 }
